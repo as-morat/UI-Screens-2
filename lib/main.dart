@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/screens/main/bottom_navigation_bar.dart';
+import 'package:foodie/screens/onboarding/onboarding.dart';
 import 'package:foodie/style/color_style.dart';
 
 void main() => runApp(const MyApp());
@@ -33,7 +35,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: false,
       ),
       debugShowCheckedModeBanner: false,
-      // home: ,
+      home: isOnboardingDone ? MainScreen() : Onboarding(done: completeOnboarding,),
     );
   }
 }
