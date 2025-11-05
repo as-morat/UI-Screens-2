@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
           secondary: greyColor,
           surface: creamColor,
         ),
-        useMaterial3: false,
+        useMaterial3: false
       ),
       debugShowCheckedModeBanner: false,
       home: isOnboardingDone ? MainScreen() : Onboarding(done: completeOnboarding,),

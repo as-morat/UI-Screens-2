@@ -17,19 +17,19 @@ class _OnboardingState extends State<Onboarding> {
       "image": "assets/images/snacks.png",
       "title": "Fresh & Healthy Meals",
       "description":
-      "Discover a wide variety of fresh salads and healthy meals delivered right to your doorstep.",
+          "Discover a wide variety of fresh salads and healthy meals delivered right to your doorstep.",
     },
     {
       "image": "assets/images/salad.png",
       "title": "Grab Fresh Fruits",
       "description":
-      "Get seasonal fruits and fresh produce from local markets anytime, anywhere.",
+          "Get seasonal fruits and fresh produce from local markets anytime, anywhere.",
     },
     {
       "image": "assets/images/chicken.png",
       "title": "Sweet Treats Delivered",
       "description":
-      "Indulge in your favorite desserts and sweet treats without leaving your home.",
+          "Indulge in your favorite desserts and sweet treats without leaving your home.",
     },
   ];
 
@@ -71,13 +71,13 @@ class _OnboardingState extends State<Onboarding> {
                         Text(
                           page["title"]!,
                           textAlign: TextAlign.center,
-                          style: MyText.responsive(MyText.h1, context),
+                          style: MyText.h1,
                         ),
                         const SizedBox(height: 20),
                         Text(
                           page["description"]!,
                           textAlign: TextAlign.center,
-                          style: MyText.responsive(MyText.h5, context),
+                          style: MyText.h5,
                         ),
                       ],
                     );
@@ -91,7 +91,7 @@ class _OnboardingState extends State<Onboarding> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
                   _pages.length,
-                      (index) => Container(
+                  (index) => Container(
                     height: 10,
                     width: currentIndex == index ? 12 : 7,
                     margin: const EdgeInsets.only(right: 5),
@@ -109,64 +109,58 @@ class _OnboardingState extends State<Onboarding> {
 
               currentIndex < _pages.length - 1
                   ? Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
-                    onPressed: () => _controller.animateToPage(
-                      _pages.length - 1,
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.easeInOut,
-                    ),
-                    child: Text(
-                      "Skip",
-                      style: MyText.responsive(
-                        MyText.withColor(MyText.h3, greyColor),
-                        context,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: orangeColor,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        if (currentIndex < _pages.length - 1) {
-                          _controller.nextPage(
-                            duration: const Duration(milliseconds: 400),
-                            curve: Curves.bounceOut,
-                          );
-                        }
-                      },
-                      icon: const Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        size: 28,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ],
-              )
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                          onPressed: () => _controller.animateToPage(
+                            _pages.length - 1,
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.easeInOut,
+                          ),
+                          child: Text(
+                            "Skip",
+                            style: MyText.withColor(MyText.h3, greyColor),
+                          ),
+                        ),
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            color: orangeColor,
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: IconButton(
+                            onPressed: () {
+                              if (currentIndex < _pages.length - 1) {
+                                _controller.nextPage(
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeInOut,
+                                );
+                              }
+                            },
+                            icon: const Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              size: 28,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                   : ElevatedButton(
-                onPressed: widget.done,
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(size.width * 0.9, 60),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                ),
-                child: Text(
-                  "Get Started",
-                  textAlign: TextAlign.center,
-                  style: MyText.responsive(
-                    MyText.withColor(MyText.h3, Colors.white),
-                    context,
-                  ),
-                ),
-              ),
+                      onPressed: widget.done,
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: Size(size.width * 0.9, 60),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                      ),
+                      child: Text(
+                        "Get Started",
+                        textAlign: TextAlign.center,
+                        style: MyText.withColor(MyText.h3, Colors.white),
+                      ),
+                    ),
             ],
           ),
         ),
